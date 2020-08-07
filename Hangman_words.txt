@@ -22,7 +22,7 @@ A stitch in time (saves nine)
 A watched man never plays
 A watched pot/kettle never boils
 Absence makes the heart grow fonder
-Absolute power corrupts absolutely. John Dalberg-Acton, 1887
+Absolute power corrupts absolutely
 Accidents will happen (in the best-regulated families).
 Actions speak louder than words.
 Adversity makes strange bedfellows
@@ -41,8 +41,8 @@ All is fair in love and war
 All is for the best in the best of all possible worlds
 All is well that ends well
 An apple a day keeps the doctor away
-An army marches on its stomach. Napoleon Bonaparte (1769–1821), military leader and Emperor of France
-An eye for an eye makes the whole world blind. Mahatma Gandhi (1869–1948), leader of the Indian independence movement
+An army marches on its stomach. Napoleon Bonaparte
+An eye for an eye makes the whole world blind. Mahatma Gandhi
 An Englishman's home is his castle/A man's home is his castle
 Another day, another dollar.
 An ounce of prevention is worth a pound of cure
@@ -208,10 +208,10 @@ He who can, does; he who cannot, teaches
 He who hesitates is lost
 He who laughs last laughs longest
 He who lives by the sword, dies by the sword
-He who loves the world as his body may be entrusted with the empire. Lao Tzu, Chinese philosopher (604 BC – c. 531 BC)
+He who loves the world as his body may be entrusted with the empire
 He who makes a beast out of himself gets rid of the pain of being a man
 He who pays the piper calls the tune
-He who knows does not speak. He who speaks does not know. Lao Tzu, Chinese philosopher (604 BC – c. 531 BC)
+He who knows does not speak. He who speaks does not know
 He who sups with the Devil should have a long spoon
 Hell hath no fury like a woman scorned
 Heav'n has no Rage, like Love to Hatred turn'd, Nor Hell a Fury, like a Woman scorn'd. William Congreve, The Mourning Bride, Act III scene viii
@@ -246,7 +246,7 @@ If you think that you know everything, then you're a Jack ass
 If you lie down with dogs, you will get up with fleas
 If you pay peanuts, you get monkeys
 If you play with fire, you will get burned.
-If you steal from one author, it is plagiarism; if you steal from many, it is research. Wilson Mizner (1876–1933), American writer and entrepreneur
+If you steal from one author, it is plagiarism; if you steal from many, it is research. Wilson Mizner
 If you want a thing done well, do it yourself
 If you have never seen the bottom of the tree, you cannot know how tall it stands
 If you must dance with the Devil, you might as well know his favorite song. (H. Anthony Ribadeneira)
@@ -298,11 +298,11 @@ Jack of all trades, master of none/one/some
 Judge not, that ye be not judged
 Keep your chin up
 Keep your friends close and your enemies closer.
-Keep your powder dry. Valentine Blacker, 1834 from Oliver's Advice
+Keep your powder dry
 Kill the chicken to scare the monkey.
 Kill the goose that lays the golden egg(s).
 Kill two birds with one stone.
-Kindness in words creates confidence. Kindness in thinking creates profoundness. Kindness in giving creates love. Lao Tzu, Chinese philosopher (604 BC – c. 531 BC)
+Kindness in words creates confidence. Kindness in thinking creates profoundness. Kindness in giving creates love.
 Knock on (or touch) wood
 Know which side (one's) bread is buttered (on)
 Knowledge is power, guard it well.
@@ -338,7 +338,7 @@ Live for today, for tomorrow never comes
 Live to fight another day. This saying comes from an English proverbial rhyme, "He who fights and runs away, may live to fight another day".
 Loose lips sink ships
 Look before you leap
-Love is blind. The Two Gentlemen of Verona, Act II, Scene 1 (1591)
+Love is blind. The Two Gentlemen of Verona
 Love of money is the root of all evil.
 Love makes the world go around
 Love will find a way
@@ -354,7 +354,7 @@ March comes in like a lion and goes out like a lamb
 Marriages are made in heaven
 Marry in haste, repent at leisure
 Memory is the treasure of the mind
-Men are blind in their own cause. Heywood Broun (1888–1939), American journalist
+Men are blind in their own cause
 Men get spoiled by staying, Women get spoiled by wandering
 Might is right
 Might makes right
@@ -399,7 +399,7 @@ No news is good news
 No one can make you feel inferior without your consent
 No pain, no gain
 No rest for the wicked
-Not all those who wander are lost "All that is gold does not glitter" J.R.R. Tolkien (1954)
+Not all those who wander are lost "All that is gold does not glitter"
 Not happy, Jan!
 Nothing is certain but death and taxes
 Nothing succeeds like success,
