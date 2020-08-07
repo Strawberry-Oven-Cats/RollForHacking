@@ -4,6 +4,14 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
 public class Hangman {
 
     //first making the ptui
@@ -28,13 +36,39 @@ public class Hangman {
         String solution = phrases.get((int)(Math.random()*407));
         //System.out.println(solution);
         solution = solution.toLowerCase();
-
+        GUI(solution);
         PTUI(solution);
         //System.out.println((int)(Math.random()*407));
 
 
     }
+    /***
+     * THE FOLLOWING CODE IS ONLY FOR GUI
+     */
+    public static void GUI(String solution){
+        JFrame f = new JFrame("A JFrame");
+        f.setSize(250, 250);
+        f.setLocation(300,200);
+        final JTextArea textArea = new JTextArea(10, 40);
+        f.getContentPane().add(BorderLayout.CENTER, textArea);
+        final JButton button = new JButton("Click Me");
+        f.getContentPane().add(BorderLayout.SOUTH, button);
+        button.addActionListener(new ActionListener() {
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textArea.append("Button was clicked\n");
+
+            }
+        });
+
+        f.setVisible(true);
+    }
+
+
+    /***
+     * THE FOLLOWING CODE IS ONLY FOR PTUI
+     */
     public static void PTUI(String solution){
         int count = 1;
         int letters_left = 0;
