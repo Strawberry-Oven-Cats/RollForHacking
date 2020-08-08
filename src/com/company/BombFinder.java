@@ -33,20 +33,20 @@ public class BombFinder {
 
         //methods
         public void print_board() {
-            System.out.print("  | ");
+            System.out.print("      | ");
             for(int i = 1; i<=DIM; i++){
                 System.out.print(i+" ");
             }
             System.out.println();
-            System.out.println("  |----------");
-            System.out.print("  | ");
+            System.out.println("      |----------");
+            System.out.print("      | ");
             for (int c = 0; c < DIM; c++) {
                 System.out.print(bombs_col[c]+" ");
             }
             System.out.println();
-            System.out.println("  |----------");
+            System.out.println("      |----------");
             for (int i = 0; i < DIM; i++) {
-                System.out.print(bombs_row[i]+" | ");
+                System.out.print((i+1)+" | "+bombs_row[i]+" | ");
                 for (int j = 0; j < DIM; j++) {
 
                 }
