@@ -8,6 +8,7 @@ public class Main {
         System.out.println("STRAWBERRY");
         System.out.println("Sydale");
         //Hangman.main();
+        //WordSearch.main();
 
     }
 }
