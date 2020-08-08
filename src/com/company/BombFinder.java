@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class BombFinder {
 
     public static class board {
@@ -8,6 +10,11 @@ public class BombFinder {
         int[] bombs_col = {0, 0, 0, 0, 0};
         int[] bombs_row = {0, 0, 0, 0, 0};
         int[][] board = {{0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0}};
+        int[][] rev = {{0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0},
@@ -48,18 +55,65 @@ public class BombFinder {
             for (int i = 0; i < DIM; i++) {
                 System.out.print((i+1)+" | "+bombs_row[i]+" | ");
                 for (int j = 0; j < DIM; j++) {
-
+                    if(rev[i][j]==0){
+                        System.out.print("? ");
+                    }else{
+                        if(board[i][j] == 1){
+                            System.out.print("X ");
+                        }else {
+                            System.out.print("0 ");
+                        }
+                    }
                 }
                 System.out.println();
             }
         }
     }
-    public static void main(String[] args){
+    public static boolean game(){
         board myBoard = new board();
         myBoard.print_board();
+        int left = 25-myBoard.tot_bombs;
+        boolean gameover= false;
+        int x = 0;
+        int y = 0;
+        Scanner sc = new Scanner(System.in);
+        while(!gameover&&left>0){
+            boolean valid = false;
+            while(!valid){
+                System.out.println("ENTER A GUESS 'x,y'");
+                String[] str = sc.next().split(",");
+                x = Integer.parseInt(str[0])-1;
+                y = Integer.parseInt(str[1])-1;
+                if(myBoard.rev[x][y] == 0){
+                    valid = true;
+                }
+            }
+            myBoard.rev[x][y] = 1;
+            if(myBoard.board[x][y] == 0) {
+                gameover = true;
+                myBoard.print_board();
+                System.out.println("THATS NOT A BOMB :( GAME OVER!!!!");
+                return false;
+
+            }else{
+
+                left--;
+            }
+            myBoard.print_board();
+
+        }
+        if(left == 0) {
+            System.out.println("CONGRATS YOU WON!!!!!");
+            return true;
+        }
+        return false;
+
     }
 
 
-
-
 }
+
+
+
+
+
