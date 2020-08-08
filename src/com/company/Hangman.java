@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 public class Hangman {
 
     //first making the ptui
-    public static void main() throws IOException {
+    public static void main(String[] args) throws IOException {
         File file =
                 new File("/Users/allasophy/Documents/GitHub/RollForHacking/Hangman_words.txt");
         Scanner sc = new Scanner(file);
@@ -36,7 +36,7 @@ public class Hangman {
         String solution = phrases.get((int)(Math.random()*407));
         //System.out.println(solution);
         solution = solution.toLowerCase();
-        GUI(solution);
+        //GUI(solution);
         PTUI(solution);
         //System.out.println((int)(Math.random()*407));
 
@@ -45,6 +45,7 @@ public class Hangman {
     /***
      * THE FOLLOWING CODE IS ONLY FOR GUI
      */
+    /*
     public static void GUI(String solution){
         JFrame f = new JFrame("A JFrame");
         f.setSize(250, 250);
@@ -64,7 +65,7 @@ public class Hangman {
 
         f.setVisible(true);
     }
-
+*/
 
     /***
      * THE FOLLOWING CODE IS ONLY FOR PTUI
