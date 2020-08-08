@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 public class Hangman {
 
     //first making the ptui
-    public static void main(String[] args) throws IOException {
+    public static boolean game() throws IOException {
         File file =
                 new File("/Users/allasophy/Documents/GitHub/RollForHacking/Hangman_words.txt");
         Scanner sc = new Scanner(file);
@@ -37,7 +37,7 @@ public class Hangman {
         //System.out.println(solution);
         solution = solution.toLowerCase();
         //GUI(solution);
-        PTUI(solution);
+        return PTUI(solution);
         //System.out.println((int)(Math.random()*407));
 
 
@@ -70,7 +70,7 @@ public class Hangman {
     /***
      * THE FOLLOWING CODE IS ONLY FOR PTUI
      */
-    public static void PTUI(String solution){
+    public static boolean PTUI(String solution){
         int count = 1;
         int letters_left = 0;
         ArrayList<Boolean> rev = new ArrayList<>();
@@ -114,7 +114,11 @@ public class Hangman {
         }
         if(letters_left==0){
             System.out.println("CONGRATS YOU WON");
+            return true;
+
         }
+        System.out.println("GAME OVER YOU LOST");
+        return true;
 
 
 

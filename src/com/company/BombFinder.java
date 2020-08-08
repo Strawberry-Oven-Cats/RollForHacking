@@ -69,7 +69,7 @@ public class BombFinder {
             }
         }
     }
-    public static void main(String[] args){
+    public static boolean game(){
         board myBoard = new board();
         myBoard.print_board();
         int left = 25-myBoard.tot_bombs;
@@ -91,7 +91,10 @@ public class BombFinder {
             myBoard.rev[x][y] = 1;
             if(myBoard.board[x][y] == 0) {
                 gameover = true;
+                myBoard.print_board();
                 System.out.println("THATS NOT A BOMB :( GAME OVER!!!!");
+                return false;
+
             }else{
 
                 left--;
@@ -99,12 +102,18 @@ public class BombFinder {
             myBoard.print_board();
 
         }
-        if(left == 0){
+        if(left == 0) {
             System.out.println("CONGRATS YOU WON!!!!!");
+            return true;
         }
+        return false;
+
     }
 
 
-
-
 }
+
+
+
+
+
