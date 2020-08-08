@@ -4,9 +4,10 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("STRAWBERRY");
         System.out.println("Sydale");
-        Hangman.main();
+        TicTacToe ticTacToe = new TicTacToe(3);
+        ticTacToe.game();
     }
 }
