@@ -3,7 +3,8 @@ package com.company;
 import java.io.IOException;
 
 public class Story {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
+        TicTacToe ticTacToe = new TicTacToe(4);
         int loss = 0;
         System.out.println("You: I'm tired of feeling like this. Life is so miserable but there's nothing I can do about it.\n" +
                            "???: Hello.\n" +
@@ -15,9 +16,9 @@ public class Story {
                            "I: We are going to tackle your emotions, and I'll help you through it. Things aren't always as" +
                            "bad as they appear to be. Firstly, sadness. Let's play a game of tic tac toe, shall we?\n");
 
-/* FIX1
+
         while(true){
-            if(TicTacToe.game()){
+            if(ticTacToe.game()){
                 System.out.println("I: Well done. In a game like this, someone has to lose. It" +
                         "becomes their job to accept it. It is the same as life, not everybody can be the winner. " +
                         "Acceptance is the first step in moving on.");
@@ -33,7 +34,6 @@ public class Story {
                 break;
             }
         }
-        */
 
         System.out.println("You: Why does that matter? Even if I move on, I still hate myself for all the things I've done.\n" +
                 "I: That brings us to disgust. It is also contributes to your sadness.\n" +
@@ -44,7 +44,7 @@ public class Story {
             if(Hangman.game()){
                 System.out.println("I: I didn't expect anybody to guess that. Maybe you aren't as bad as you think you" +
                         " are.\n" +
-                        "You: How about that one really embarassing moment during my first date, or that time I made" +
+                        "You: How about that one really embarrassing moment during my first date, or that time I made" +
                         "a fool out of myself at my 13th birthday party.\n" +
                         "I: Dwelling on little awkward moments like those will only make you feel worse. Chances are," +
                         " nobody even remembers them. Everybody, like you, is focused on their own encounters.");
