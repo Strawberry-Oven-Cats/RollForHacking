@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class WordSearch {
-    private final int rows = 15, cols = 15;
+    private final int rows = 12, cols = 12;
     private char[][] grid;
     private List<String> wordBank;
     private List<String> searchList;
@@ -83,8 +83,8 @@ public class WordSearch {
                 for (letterIndex = 0; letterIndex < curWordLength; letterIndex++) {
                     grid[xcoor][ycoor] = curWord.charAt(letterIndex);
                     xcoor++;
-                    printGrid();
-                    System.out.println();
+                   // printGrid();
+                  //  System.out.println();
                 }
             } else { // try to add it vertically
                 // generate random coordinates until you find a valid pair
@@ -107,13 +107,22 @@ public class WordSearch {
                 for (letterIndex = 0; letterIndex < curWordLength; letterIndex++) {
                     grid[xcoor][ycoor] = curWord.charAt(letterIndex);
                     ycoor++;
-                    printGrid();
-                    System.out.println();
+                   // printGrid();
+                    //System.out.println();
                 }
             }
         }
 
         // fill in each free space with a random char!
+        for (int y = 0; y < cols; y++) {
+            for (int x = 0; x < rows; x++) {
+                if (grid[x][y] == '_') {
+                    Random rand = new Random();
+                    char c = (char) ('a' + rand.nextInt(26));
+                    grid[x][y] = c;
+                }
+            }
+        }
 
     }
 
@@ -137,7 +146,20 @@ public class WordSearch {
     public void printGrid() {
         // prints the grid
         // currently only prints dummy data - underscores
-        for (int y = 0; y < cols; y++) {
+        System.out.print("   ");
+        for (int x = 0; x < rows; x++) {
+            System.out.print(x + " ");
+        }
+        System.out.println();
+        for (int y = 0; y < cols - 2; y++) {
+            System.out.print("0" + y + "| ");
+            for (int x = 0; x < rows; x++) {
+                System.out.print(grid[x][y] + " ");
+            }
+            System.out.println();
+        }
+        for (int y = 10; y < cols; y++) {
+            System.out.print(y + "| ");
             for (int x = 0; x < rows; x++) {
                 System.out.print(grid[x][y] + " ");
             }
