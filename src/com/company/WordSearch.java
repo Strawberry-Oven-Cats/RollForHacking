@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class WordSearch {
-    private final int rows = 20, cols = 20;
+    private final int rows = 15, cols = 15;
     private char[][] grid;
     private List<String> wordBank;
     private List<String> searchList;
@@ -43,7 +43,7 @@ public class WordSearch {
         int index;
         Random rand = new Random();
 
-        while ( i < 10) {
+        while ( i < 5) {
             index = rand.nextInt(wordBank.size() - 1);
             // System.out.println(index + " " + wordBank.get(index) );
             searchList.add(wordBank.get(index));
@@ -55,57 +55,83 @@ public class WordSearch {
 
     }
 
-    public void populateGrid(){
+    public void populateGrid() {
         // add each word to the grid
         for (int i = 0; i < searchList.size(); i++) {
             String curWord = searchList.get(i);
             int curWordLength = curWord.length();
             System.out.println("word: " + curWord + " length: " + curWordLength);
             if ( i % 2 == 0) { // if its even, try to add it horizontally
-                // generate random coordinate
+                // generate random coordinates until you find a valid pair
+                boolean isValid = false;
                 Random rand = new Random();
-                int xcoor = rand.nextInt(rows);
-                int ycoor = rand.nextInt(cols);
+                int xcoor = 0, ycoor = 0;
 
-                // check that x coordinate + length of word < rows
-                while ( xcoor + curWordLength > rows) {
+                while (!isValid) {
                     xcoor = rand.nextInt(rows);
+                    ycoor = rand.nextInt(cols);
+                    System.out.println("coordinates x: " + xcoor + " y: " + ycoor);
+
+                    // check that x coordinate + length of word < rows AND that we don't overwrite any other words
+                    if (xcoor + curWordLength <= rows && checkCoordinateValidity(xcoor, ycoor, curWordLength, true)) {
+                        isValid = true;
+                    }
                 }
 
-                System.out.println("coordinates x: " + xcoor + " y: " + ycoor);
-
-                // print the word into the grid
-                for (int letterIndex = 0; letterIndex < curWordLength; letterIndex++) {
+                // write the word into the grid
+                int letterIndex;
+                for (letterIndex = 0; letterIndex < curWordLength; letterIndex++) {
                     grid[xcoor][ycoor] = curWord.charAt(letterIndex);
                     xcoor++;
                     printGrid();
                     System.out.println();
                 }
-
             } else { // try to add it vertically
-                // generate random coordinate
+                // generate random coordinates until you find a valid pair
+                boolean isValid = false;
                 Random rand = new Random();
-                int xcoor = rand.nextInt(rows);
-                int ycoor = rand.nextInt(cols);
+                int xcoor = 0, ycoor = 0;
 
-                // check that y coordinate + length of word < cols
-                while ( ycoor + curWordLength > cols) {
+                while (!isValid) {
+                    xcoor = rand.nextInt(rows);
                     ycoor = rand.nextInt(cols);
-                }
+                    System.out.println("coordinates x: " + xcoor + " y: " + ycoor);
 
-                System.out.println("coordinates x: " + xcoor + " y: " + ycoor);
-                // print the word into the grid
-                for (int letterIndex = 0; letterIndex < curWordLength; letterIndex++) {
+                    // check that y coordinate + length of word < cols AND that we don't overwrite any other words
+                    if (ycoor + curWordLength <= cols && checkCoordinateValidity(xcoor, ycoor, curWordLength, false)) {
+                        isValid = true;
+                    }
+                }
+                // write the word into the grid
+                int letterIndex;
+                for (letterIndex = 0; letterIndex < curWordLength; letterIndex++) {
                     grid[xcoor][ycoor] = curWord.charAt(letterIndex);
                     ycoor++;
                     printGrid();
                     System.out.println();
                 }
             }
-
         }
 
+        // fill in each free space with a random char!
 
+    }
+
+    public boolean checkCoordinateValidity(int xcoor, int ycoor, int wordLength, boolean horizontal){
+        if (horizontal) {
+            for (int cur = xcoor; cur < xcoor + wordLength; cur++) {
+                if (grid[cur][ycoor] != '_') {
+                    return false;
+                }
+            }
+        } else {
+            for (int cur = ycoor; cur < ycoor + wordLength; cur++) {
+                if (grid[xcoor][cur] != '_') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void printGrid() {
