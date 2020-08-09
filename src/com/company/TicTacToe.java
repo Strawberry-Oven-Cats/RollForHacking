@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
@@ -10,7 +10,7 @@ import static java.lang.Integer.parseInt;
  */
 
 public class TicTacToe {
-    public int DIM;
+
     public Board board;
     public Scanner in;
 
@@ -36,32 +36,54 @@ public class TicTacToe {
         }
 
         public void addComp(int row, int col) throws Exception {
-            if((row < 0 || row >= DIM) || !board[row][col].equals(" ")) {
-                throw new Exception("invalid");
-            }
             board[row][col] = "O";
         }
 
         public boolean verify(){
             for (int r = 0; r < DIM; r++) {
+                boolean win = true;
                 for(int c = 0; c < DIM; c++) {
-                    if (board[r][c].equals("X")) {
-                        return true;
+                    if(!board[r][c].equals("X")) {
+                        win = false;
                     }
                 }
-            }
-            for (int c = 0; c < DIM; c++) {
-                for(int r = 0; r < DIM; r++)
-                if (board[c][c].equals("X")) {
+                if(win){
                     return true;
                 }
             }
 
-            for (int r = 0; r < DIM; r++) {
-                if (board[r][r].equals("X")) {
+            for (int c = 0; c < DIM; c++) {
+                boolean win = true;
+                for(int r = 0; r < DIM; r++) {
+                    if (!board[r][c].equals("X")) {
+                        win = false;
+                    }
+                }
+                if (win) {
                     return true;
                 }
             }
+
+            boolean win = true;
+            for (int r = 0; r < DIM; r++) {
+                if (!board[r][r].equals("X")) {
+                    win = false;
+                }
+            }
+            if(win){
+                return true;
+            }
+
+            boolean win1 = true;
+            for (int r = 0; r < DIM; r++) {
+                if (!board[r][DIM-1-r].equals("X")) {
+                    win1 = false;
+                }
+            }
+            if(win1){
+                return true;
+            }
+
             return false;
         }
 
@@ -75,6 +97,11 @@ public class TicTacToe {
             }
             return true;
         }
+
+        public String card(int row, int column){
+            return board[row][column];
+        }
+
         @Override
         public String toString() {
             StringBuilder str = new StringBuilder();
@@ -103,13 +130,22 @@ public class TicTacToe {
     }
 
     public int[] computer(){
-        int r = (int)(Math.random()*(DIM+1));
-        int c = (int)(Math.random()*(DIM+1));
-        return new int[]{ r, c};
+        Random r = new Random();
+        int row = r.nextInt(board.DIM);
+        Random c = new Random();
+        int column = c.nextInt(board.DIM);
+        if(!board.card(row, column).equals(" ")) {
+            while (!board.card(row, column).equals(" ")) {
+                row = r.nextInt(board.DIM );
+                column = c.nextInt(board.DIM);
+            }
+        }
+        return new int[]{row, column};
     }
 
 
-    public void game() throws Exception {
+    public boolean game() throws Exception {
+        System.out.println(board);
         do{System.out.print("Pick a row and column separated by a space: ");
             String[] coordinates = in.nextLine().split(" ");
             int row = parseInt(coordinates[0]);
@@ -118,7 +154,16 @@ public class TicTacToe {
             int[] computer = computer();
             board.addComp(computer[0], computer[1]);
             System.out.println(board);
-        }while(!board.verify() || board.full());
+        }while(!board.verify() && !board.full());
+
+        if(board.verify()){
+            System.out.println("Winner!!");
+            return true;
+        }
+        else {
+            System.out.println("LOSER :(");
+            return false;
+        }
     }
 
 
